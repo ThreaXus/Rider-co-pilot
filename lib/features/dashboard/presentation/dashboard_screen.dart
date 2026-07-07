@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../shared/models/demo_data.dart';
 import '../../../shared/widgets/rc_button.dart';
 import '../../../shared/widgets/rc_card.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/app_text_styles.dart';
-import '../../home/presentation/home_screen.dart';
+import '../../dashboard/presentation/dashboard_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => const DashboardScreen(),
         ),
       );
     });

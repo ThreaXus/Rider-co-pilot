@@ -4,9 +4,17 @@ import '../../../core/theme/app_text_styles.dart';
 import '../../../shared/models/demo_data.dart';
 import '../../../shared/widgets/rc_button.dart';
 import '../../../shared/widgets/rc_card.dart';
+import '../../../shared/widgets/navigation/bottom_navigation.dart';
 
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
+
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +71,7 @@ class DashboardScreen extends StatelessWidget {
                   ],
                 ),
               ),
+
 
               const SizedBox(height: AppSpacing.md),
 

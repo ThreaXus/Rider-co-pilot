@@ -5,6 +5,13 @@ import '../../../shared/models/demo_data.dart';
 import '../../../shared/widgets/rc_button.dart';
 import '../../../shared/widgets/rc_card.dart';
 import '../../../shared/widgets/navigation/bottom_navigation.dart';
+import '../widgets/dashboard_header.dart';
+import '../widgets/motorcycle_card.dart';
+import '../widgets/weather_card.dart';
+import '../widgets/fuel_card.dart';
+import '../widgets/map_card.dart';
+import '../widgets/rider_app_bar.dart';
+import '../widgets/ride_action_card.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -19,165 +26,43 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Rider Co-Pilot"),
-      ),
-      body: SafeArea(
+        body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(AppSpacing.lg),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Greeting
-              Text(
-                "Good Evening, ${DemoData.user.firstName} 👋",
-                style: AppTextStyles.headline,
-              ),
+              const RiderAppBar(),
 
-              const SizedBox(height: AppSpacing.sm),
+              const SizedBox(height: AppSpacing.md),
 
-              Text(
-                "The roads are calling.",
-                style: AppTextStyles.body,
-              ),
+              // Motorcycle Card
+              const MotorcycleCard(),
 
               const SizedBox(height: AppSpacing.lg),
 
-              // Motorcycle Card
-              RCCard(
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.motorcycle,
-                      size: 40,
-                      color: Colors.orange,
-                    ),
-                    const SizedBox(width: AppSpacing.md),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            DemoData.motorcycle.fullName,
-                            style: AppTextStyles.title,
-                          ),
-                          Text(
-                            "${DemoData.motorcycle.year} • ${DemoData.motorcycle.mileage} km",
-                            style: AppTextStyles.body,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+Row(
+  children: const [
+    Expanded(
+      child: WeatherCard(),
+    ),
 
+    SizedBox(width: AppSpacing.md),
 
-              const SizedBox(height: AppSpacing.md),
-
-              // Weather Card
-              RCCard(
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.wb_sunny_rounded,
-                      color: Colors.orange,
-                      size: 40,
-                    ),
-                    const SizedBox(width: AppSpacing.md),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "${DemoData.weather.temperature}°C",
-                            style: AppTextStyles.title,
-                          ),
-                          Text(
-                            DemoData.weather.condition,
-                            style: AppTextStyles.body,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: AppSpacing.md),
-
-              // Fuel Card
-              RCCard(
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.local_gas_station,
-                      color: Colors.orange,
-                      size: 40,
-                    ),
-                    const SizedBox(width: AppSpacing.md),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "Estimated Range",
-                            style: AppTextStyles.title,
-                          ),
-                          Text(
-                            "${DemoData.motorcycle.rangeKm} km remaining",
-                            style: AppTextStyles.body,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+    Expanded(
+      child: FuelCard(),
+    ),
+  ],
+),
 
               const SizedBox(height: AppSpacing.xl),
 
               // Map Placeholder
-              RCCard(
-                child: SizedBox(
-                  height: 180,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(
-                          Icons.map,
-                          size: 60,
-                          color: Colors.orange,
-                        ),
-                        SizedBox(height: 12),
-                        Text(
-                          "Map Preview",
-                          style: AppTextStyles.title,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              const MapCard(),
 
-              const SizedBox(height: AppSpacing.xl),
-
-              RCButton(
-                title: "Plan Ride",
-                icon: Icons.navigation_rounded,
-                onPressed: () {},
-              ),
-
-              const SizedBox(height: AppSpacing.md),
-
-              RCButton(
-                title: "Continue Ride",
-                icon: Icons.play_arrow_rounded,
-                primary: false,
-                onPressed: () {},
-              ),
-
+              const RideActionCard(),
+              
               const SizedBox(height: AppSpacing.md),
 
               RCButton(

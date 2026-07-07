@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../core/theme/app_theme.dart';
-import 'router.dart';
+import '../features/splash/presentation/splash_screen.dart';
 
 class RiderCoPilotApp extends StatelessWidget {
   const RiderCoPilotApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
+    return MaterialApp(
       title: 'Rider Co-Pilot',
+      debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
-      routerConfig: AppRouter.router,
+      home: const SplashScreen(),
     );
   }
 }

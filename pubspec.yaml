@@ -32,12 +32,13 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
-  flutter_riverpod: ^2.6.1
-  go_router: ^16.0.0
+  flutter_riverpod: ^3.3.2
+  go_router: ^17.3.0
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  maplibre_gl: ^0.26.2
+  geolocator: ^14.0.2
+  permission_handler: ^12.0.1
+    
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
